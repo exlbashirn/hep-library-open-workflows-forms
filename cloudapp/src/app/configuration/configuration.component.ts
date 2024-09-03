@@ -13,10 +13,10 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 export class ConfigurationComponent implements OnInit {
 
   displayedColumns = ['id', 'name', 'description', 'url', 'actions'];
-
-  private forms: N8nFormItem[] = [];
+  forms: N8nFormItem[] = [];
+  saving = false;
+  
   private changed = false;
-  private saving = false;
 
   constructor(private appService: AppService, public dialog: MatDialog) {
     this.appService.setTitle('Configuration');
