@@ -1,0 +1,10 @@
+.title {
+    display: flex;
+    > h1 {
+        flex: 1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-transform: uppercase;
+    }
+}

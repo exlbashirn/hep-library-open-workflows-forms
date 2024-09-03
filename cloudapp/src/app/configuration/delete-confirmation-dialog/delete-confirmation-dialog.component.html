@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Delete Entry</h1>
+<div mat-dialog-content>
+    <p>
+        Are you sure you want to delete '{{data.form.name}}'?
+    </p>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-flat-button color="secondary" mat-dialog-close cdkFocusInitial>No</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="true">Yes</button>
+</div>

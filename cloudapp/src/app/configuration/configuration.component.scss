@@ -1,0 +1,23 @@
+mat-card:hover mat-card-actions {
+    visibility: visible;
+    pointer-events: all;
+}
+
+mat-card-actions {
+    visibility: hidden;
+    pointer-events: none;
+    > div {
+        // display: flex;
+        // justify-content: flex-end;
+        // width: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        text-align: right;
+        > button.mat-button {
+            min-width: 32px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+   "id": "library-open-workflows",
+   "title": "Library Open Workflows",
+   "subtitle": "Launch library workflows",
+   "author": "exlibris",
+   "description": "Allows the library staff to submit a form, which will initiate a predefined workflow based on certain parameters",
+   "pages": {
+      "config": "/#/configuration"
+   },
+   "icon": {
+      "type": "url",
+      "value": "/assets/n8n.png"
+   },
+   "fullscreen": {
+      "allow": true,
+      "open": false
+   }
+}
