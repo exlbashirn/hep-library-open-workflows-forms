@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { AppService, N8nFormItem } from '../app.service';
 
 @Component({
@@ -22,12 +23,15 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.appService.getForms().subscribe(forms => {
+      forkJoin([
+        this.appService.getForms(),
+        this.appService.getN8nInstanceUrl()
+      ]).subscribe(([forms, url]) => {
         this.form = forms.find(f => f.id === +params.get('id'));
         this.notFound = !this.form;
         if (this.form) {
           this.appService.setTitle(this.form.name);
-          this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.form.url);
+          this.url = this.sanitizer.bypassSecurityTrustResourceUrl(`${url}/form/${this.form.path}`);
         }
       })
     });

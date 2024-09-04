@@ -15,7 +15,7 @@ export class ConfigurationComponent implements OnInit {
   displayedColumns = ['id', 'name', 'description', 'url', 'actions'];
   forms: N8nFormItem[] = [];
   saving = false;
-  
+
   private changed = false;
 
   constructor(private appService: AppService, public dialog: MatDialog) {
@@ -24,7 +24,10 @@ export class ConfigurationComponent implements OnInit {
 
   ngOnInit(): void {
     this.appService.getForms().subscribe(forms => {
-      this.forms = forms;
+      this.forms = forms ?? [];
+    });
+    this.appService.getFormTriggersFromInstance().subscribe(workflows => {
+
     });
   }
 

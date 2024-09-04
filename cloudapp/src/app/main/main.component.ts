@@ -22,7 +22,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.appService.getForms().subscribe(forms => {
-      this._forms = forms;
+      this._forms = forms ?? [];
       this.forms = [...this._forms];
     })
   }

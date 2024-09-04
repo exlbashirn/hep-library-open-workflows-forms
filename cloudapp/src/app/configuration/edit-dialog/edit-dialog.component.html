@@ -2,12 +2,20 @@
 <div mat-dialog-content>
     <form [formGroup]="formGroup">
         <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name" required>
+            <mat-label>Form</mat-label>
+            <mat-select formControlName="form" required>
+                <mat-option *ngFor="let wflow of formTriggeredWorkflows" [value]="wflow.id + '+' + wflow.formPath">
+                    {{wflow.formTitle}} ({{wflow.name}})
+                </mat-option>
+            </mat-select>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>URL</mat-label>
-            <input matInput formControlName="url" required>
+            <mat-label>Path</mat-label>
+            <input matInput formControlName="path" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Description</mat-label>
