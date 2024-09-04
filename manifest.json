@@ -14,5 +14,10 @@
    "fullscreen": {
       "allow": true,
       "open": false
+   },
+   "contentSecurity": {
+      "frameSrc": [
+         "*.exlibrisroup.com"
+      ]
    }
 }
