@@ -17,7 +17,7 @@
    },
    "contentSecurity": {
       "frameSrc": [
-         "*.exlibrisroup.com"
+         "*.exlibrisgroup.com"
       ]
    }
 }
