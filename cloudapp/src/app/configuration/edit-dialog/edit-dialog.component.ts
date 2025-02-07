@@ -33,7 +33,7 @@ export class EditDialogComponent implements OnInit {
           disabled: true
         }, Validators.required),
         name: new FormControl(form.name, Validators.required),
-        path: new FormControl({ value: form.path, disabled: true }, Validators.required),
+        path: new FormControl({ value: form.path, disabled: form.path !== 'null' }, Validators.required),
         description: new FormControl(form.description ?? '')
       });
     } else {
@@ -48,6 +48,11 @@ export class EditDialogComponent implements OnInit {
       const form = this.formTriggeredWorkflows.find(wf => `${wf.id}+${wf.formPath}` === formVal);
       this.formGroup.get('name').setValue(`${form.formTitle} (${form.name})`);
       this.formGroup.get('path').setValue(form.formPath);
+      if (form.formPath === 'null') {
+        this.formGroup.get('path').enable();
+      } else {
+        this.formGroup.get('path').disable();
+      }
     })
     this.formGroup.valueChanges.pipe(debounceTime(100)).subscribe(value => {
       const { name, path, description } = form;
